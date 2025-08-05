@@ -9,5 +9,8 @@
 <body>
 	<h2>홈</h2>
 	<a href="/test" >Test</a>
+	<hr />
+	<a href="/Menus/List">맨유목록</a><br />
+	<a href="/Menus/WriteForm">새맨 유선수추가</a><br />
 </body>
 </html>

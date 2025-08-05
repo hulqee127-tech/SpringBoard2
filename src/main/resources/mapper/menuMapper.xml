@@ -2,13 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.board.menus.mapper.MenuMapper">  
  
-  <select id="getMenuList"  
-      resultType="com.board.menus.domain.MenuVo"> 
-  
-     SELECT     MENU_ID, MENU_NAME, MENU_SEQ
-      FROM      MENUS
-      ORDER BY  MENU_SEQ ASC
-  
-  </select>
+ 	<insert id="insertMenu" parameterType="map">
+ 		insert into menus
+ 				( menu_id, menu_name, menu_seq )
+ 		values	( #{ menu_id }, #{ menu_name }, #{ menu_seq } )
+ 	</insert>
+ 	
+  	<select id="getMenuList" resultType="com.board.menus.domain.MenuDTO"> 
+		SELECT MENU_ID, MENU_NAME, MENU_SEQ
+		FROM MENUS
+		ORDER BY MENU_SEQ ASC
+	</select>
   
 </mapper>
