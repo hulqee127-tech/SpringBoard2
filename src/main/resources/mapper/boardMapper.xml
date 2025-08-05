@@ -3,7 +3,7 @@
 <mapper namespace="com.board.menus.mapper.MenuMapper">  
  
   <select id="getMenuList"  
-      resultType="com.board.menus.domain.MenuVo">
+      resultType="com.board.menus.domain.MenuVo"> 
   
      SELECT     MENU_ID, MENU_NAME, MENU_SEQ
       FROM      MENUS
