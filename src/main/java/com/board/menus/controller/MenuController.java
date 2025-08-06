@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.board.menus.domain.MenuDTO;
@@ -16,13 +17,16 @@ public class MenuController {
 	private MenuMapper menuMapper;
 	
 	@RequestMapping("/Menus/List")
-	public String list() {
+	public String list(Model model) {
 		
 		List<MenuDTO> menuList = menuMapper.getMenuList();
 		System.out.println(menuList);
+
+		model.addAttribute("menuList", menuList);
 		
 		return "menus/list";	//WEB-INF/views/menus/list.jsp
 	}
+	
 	
 	@RequestMapping("/Menus/WriteForm")
 	public String writeForm() {
@@ -42,8 +46,11 @@ public class MenuController {
 		//menuMapper.insertMenu(menu_id, menu_name, menu_seq);
 		//2. MenuDTO menuDto = new MenuDTO(menu_id, menu_name, menu_seq);
 		menuMapper.insertMenu(menuDto);
+		
+		
 		// 목록보기로 이동
-		return "menus/list";	//WEB-INF/views/menus/write.jsp
+		//return "menus/list";	//WEB-INF/views/menus/write.jsp
+		return "redirect:/Menus/List";
 	}
 	
 	

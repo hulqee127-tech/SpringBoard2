@@ -11,7 +11,7 @@
   	<select id="getMenuList" resultType="com.board.menus.domain.MenuDTO"> 
 		SELECT MENU_ID, MENU_NAME, MENU_SEQ
 		FROM MENUS
-		ORDER BY MENU_SEQ ASC
+		ORDER BY MENU_ID ASC
 	</select>
   
 </mapper>

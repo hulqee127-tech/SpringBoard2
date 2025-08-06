@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body bgcolor="black" style = "color:white">
 	<main>
 		<h2>새맨유선수추가</h2>
 		<form action="/Menus/Write" method="POST">

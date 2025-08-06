@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body bgcolor="black" style = "color:white">
 	<h2>홈</h2>
 	<a href="/test" >Test</a>
 	<hr />
