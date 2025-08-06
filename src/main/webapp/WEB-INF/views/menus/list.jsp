@@ -6,6 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon" type="image/jpg" href="/img/saitama.jpg" />
+<link rel="stylesheet" href="/css/common.css" />
+<!-- SCSS 문법을 가능하게 하는 라이브러리
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js"></script> 
+-->
+<style>
+	td { text-align : center; }
+	tr:first-child {
+		background-color : gray;
+		font-weight : bold;
+		/*  SCSS 문법 - 별로 라이브러리 필요 / 그런데 지금은 됨 / 스타일 안에 스타일을 넣는 방법? */
+		/* 원래는 라이브러리를 링크 걸어서 나와야 하는데 된다 ㅋㅎㅋㅎㅋㅎㅋㅎㅋㅎ */
+		td {
+			border-color : cyan;
+			color : white;
+		}
+	}
+	td[colspan="5"]{
+		text-align : right;
+	}
+	/*
+	tr:first-child td {
+		border-color : white;
+	}
+	*/
+</style>
 </head>
 <body bgcolor="black" style = "color:white">
 	<main>

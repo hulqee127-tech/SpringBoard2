@@ -13,5 +13,11 @@
 		FROM MENUS
 		ORDER BY MENU_ID ASC
 	</select>
+	
+	<select id="deleteMenu"> 
+		DELETE
+		FROM MENUS
+		WHERE MENU_ID = #{menu_id}
+	</select>
   
 </mapper>
