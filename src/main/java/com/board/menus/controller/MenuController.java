@@ -30,8 +30,10 @@ public class MenuController {
 	
 	
 	@RequestMapping("/Menus/WriteForm")
-	public String writeForm() {
-		return "menus/write";	//WEB-INF/views/menus/write.jsp
+	public String writeForm(MenuDTO menuDto, Model model) {
+		MenuDTO insertData = menuMapper.getInsertData(menuDto);
+		model.addAttribute("insertData", insertData);
+		return "menus/writeForm";	//WEB-INF/views/menus/writeForm.jsp
 	}
 	
 	@RequestMapping("/Menus/Write")
@@ -57,13 +59,31 @@ public class MenuController {
 	}
 	
 	///Menus/Delete?menu_id=${ menu.menu_id   }
-	
 	@RequestMapping("/Menus/Delete")
-	public String delete(@RequestParam String menu_id) {
-		menuMapper.deleteMenu(menu_id);
-		System.out.println(menu_id);
+	//public String delete(@RequestParam String menu_id) {
+	public String delete(MenuDTO menuDto) {
+		menuMapper.deleteMenu(menuDto);
+		System.out.println(menuDto);
 		return "redirect:/Menus/List";
 	}
 	
+	//http://localhost:9090/Menus/UpdateForm?menu_id=MENU12
+	@RequestMapping("/Menus/UpdateForm")
+	public String updateForm(MenuDTO menuDto, Model model) {
+		// 넘어온 정보를 이용하여 수정할 정보를 조회
+		MenuDTO updateData = menuMapper.getUpdateData(menuDto);
+		System.out.println(updateData);
+		// 조회한 정보를 updateForm.jsp 로 넘긴다.
+		model.addAttribute("updateData", updateData);
+		// munus/updateForm.jsp 로 가랏~!
+		return "menus/updateForm";	
+		//return "";
+	}
 	
+	//http://localhost:9090/Menus/Update
+	@RequestMapping("/Menus/Update")
+	public String updateMenu(MenuDTO menuDto, Model model) {
+		menuMapper.updateMenu(menuDto);
+		return "redirect:/Menus/List";
+	}
 }

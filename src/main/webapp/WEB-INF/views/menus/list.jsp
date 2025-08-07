@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>맨유선수리스트</title>
 <link rel="icon" type="image/jpg" href="/img/saitama.jpg" />
 <link rel="stylesheet" href="/css/common.css" />
 <!-- SCSS 문법을 가능하게 하는 라이브러리

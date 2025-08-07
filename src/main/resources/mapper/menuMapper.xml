@@ -14,10 +14,40 @@
 		ORDER BY MENU_ID ASC
 	</select>
 	
-	<select id="deleteMenu"> 
+	<!-- 
+	<select id="getInsertData" resultMap="getInsertMap"> 
+		SELECT MENU_ID, SUBSTR(MENU_ID,0,4) ID, SUBSTR(MENU_ID,5,2) N
+		FROM (
+    		SELECT MENU_ID, RANK() OVER(ORDER BY MENU_ID DESC) AS RANK
+    		FROM MENUS 
+		) WHERE RANK = 1
+	</select>
+	<resultMap id="getInsertMap" type="com.board.menus.domain.MenuDTO"> 
+		<result property="menu_id" column="MENU_ID"/>
+		<result property="menu_name" column="ID"/>	
+		<result property="menu_seq" column="N"/>	
+	</resultMap>
+	-->
+	<select id="getInsertData" resultType="com.board.menus.domain.MenuDTO"> 
+		SELECT 
+			'MENU'||TRIM(TO_CHAR(NVL(SUBSTR(MAX(MENU_ID),5,2),0)+1,'00')) MENU_ID,
+			TO_CHAR(NVL(MAX(MENU_SEQ),0)+1,'00') MENU_SEQ
+		FROM MENUS
+	</select> 
+	
+		
+	<delete id="deleteMenu"> 
 		DELETE
 		FROM MENUS
 		WHERE MENU_ID = #{menu_id}
+	</delete>
+  	<select id="getUpdateData" resultType="com.board.menus.domain.MenuDTO"> 
+		SELECT MENU_ID, MENU_NAME, MENU_SEQ
+		FROM MENUS WHERE MENU_ID = #{menu_id}
+		ORDER BY MENU_ID ASC
 	</select>
-  
+	<update id="updateMenu"> 
+		UPDATE MENUS SET MENU_NAME = #{menu_name}, MENU_SEQ = #{menu_seq}
+		WHERE MENU_ID = #{menu_id} 
+	</update>
 </mapper>
