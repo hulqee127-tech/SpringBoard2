@@ -4,4 +4,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'SpringBorad2'
+rootProject.name = 'SpringBorad3'
